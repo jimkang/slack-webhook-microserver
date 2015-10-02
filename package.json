@@ -1,0 +1,29 @@
+{
+  "name": "slack-webhook-microserver",
+  "version": "1.0.0",
+  "description": "A small web server that wraps around a function you provide to respond to Slack webhook calls.",
+  "main": "slack-webhook-microserver.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jimkang/slack-webhook-microserver.git"
+  },
+  "keywords": [],
+  "author": "Jim Kang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jimkang/slack-webhook-microserver/issues"
+  },
+  "homepage": "https://github.com/jimkang/slack-webhook-microserver",
+  "devDependencies": {
+    "call-next-tick": "^1.1.2",
+    "request": "^2.64.0",
+    "tape": "^3.0.3"
+  },
+  "dependencies": {
+    "lodash": "^3.10.1",
+    "qs": "^5.1.0"
+  }
+}
