@@ -1,6 +1,6 @@
 {
   "name": "slack-webhook-microserver",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "A small web server that wraps around a function you provide to respond to Slack webhook calls.",
   "main": "webhook-microserver.js",
   "scripts": {
