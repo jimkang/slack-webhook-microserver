@@ -93,3 +93,35 @@ test('Good token', function goodToken(t) {
     server.close();
   }
 });
+
+test('No response if callback has no response', function noResponse(t) {
+  function respondWithNothing(params, done) {
+    t.pass('Should call callback.');
+    callNextTick(done);
+  }
+
+  var server = createMicroserver({
+    validWebhookTokens: ['good-token'],
+    getResponseObject: respondWithNothing
+  });
+
+  request(
+    {
+      url: serverURL,
+      method: 'POST',
+      json: true,
+      form: {
+        token: 'good-token',
+        number: 5
+      },
+      timeout: 1000
+    },
+    checkResponse
+  );
+
+  function checkResponse(error, response, body) {
+    t.equal(error.code, 'ETIMEDOUT', 'Does not respond.');
+    server.close();
+    t.end();
+  }
+});

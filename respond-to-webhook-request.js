@@ -59,7 +59,7 @@ function createRespondToWebhookRequest(opts) {
         res.writeHead(500);
         res.end(error.message);
       }
-      else {
+      else if (response) {
         res.writeHead(200, postResponseHeaders);
         res.end(JSON.stringify(response));
       }
