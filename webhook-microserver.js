@@ -4,9 +4,11 @@ var createRespondToWebhookRequest = require('./respond-to-webhook-request');
 
 function createMicroserver(opts) {
   var port;
+  var log;
 
   if (opts) {
     port = opts.port;
+    log = opts.log;
   }
 
   if (!port) {
@@ -17,7 +19,11 @@ function createMicroserver(opts) {
     _.pick(opts, 'validWebhookTokens', 'getResponseObject')
   );
 
-  return http.createServer(respondToRequest).listen(port);
+  var server = http.createServer(respondToRequest).listen(port);
+  if (log) {
+    log('Slack webhook server started on port', port);
+  }
+  return server;
 }
 
 module.exports = createMicroserver;

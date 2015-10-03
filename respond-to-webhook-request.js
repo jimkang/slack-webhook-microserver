@@ -43,7 +43,6 @@ function createRespondToWebhookRequest(opts) {
         return;
       }
       var params = qs.parse(JSON.parse(body));
-      debugger;
 
       if (validWebhookTokens.indexOf(params.token) === -1) {
         res.writeHead(401);
@@ -70,7 +69,6 @@ function createRespondToWebhookRequest(opts) {
 }
 
 function streamBodyFromReq(req, done) {
-  debugger;
   var body = '';
 
   req.on('data', appendData);
@@ -81,7 +79,6 @@ function streamBodyFromReq(req, done) {
   }
 
   function passBackBody() {
-    debugger;
     done(null, body);
   }
 }
