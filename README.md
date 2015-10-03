@@ -32,6 +32,12 @@ Then, create the web server with it:
 
 Then, when it receive a request, it will check the `token` params against `validWebhookTokens`. If it is a good token, the server will pass the request on to your function and pass back what it responds with to the http response.
 
+When you're done:
+
+    server.close();
+
+(The `server` object returned is an instance of [http.Server](https://nodejs.org/api/http.html#http_class_http_server).)
+
 Tests
 -----
 
