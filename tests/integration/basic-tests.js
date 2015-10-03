@@ -25,8 +25,8 @@ test('Bad token', function badToken(t) {
       url: serverURL,
       method: 'POST',
       json: true,
-      body: {
-        token: 'bad-token',        
+      form: {
+        token: 'bad-token'
       }
     },
     checkResponse
@@ -48,7 +48,7 @@ test('Good token', function goodToken(t) {
       params,
       {
         token: 'good-token',
-        number: 5
+        number: '5'
       },
       'Params are passed to the getResponseObject function.'
     );
@@ -71,7 +71,7 @@ test('Good token', function goodToken(t) {
       url: serverURL,
       method: 'POST',
       json: true,
-      body: {
+      form: {
         token: 'good-token',
         number: 5
       }
@@ -86,7 +86,7 @@ test('Good token', function goodToken(t) {
       body,
       {
         test: 'ok',
-        number: 5
+        number: '5'
       },
       'Response is what is returned by getResponseObject.'
     ),

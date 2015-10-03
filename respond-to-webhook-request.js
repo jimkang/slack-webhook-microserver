@@ -42,7 +42,8 @@ function createRespondToWebhookRequest(opts) {
         res.end();
         return;
       }
-      var params = qs.parse(JSON.parse(body));
+
+      var params = qs.parse(body);
 
       if (validWebhookTokens.indexOf(params.token) === -1) {
         res.writeHead(401);
